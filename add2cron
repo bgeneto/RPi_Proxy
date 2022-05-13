@@ -1,0 +1,4 @@
+#!/bin/bash
+croncmd="/home/$USER/wpa-rpi_proxy/run > /dev/null 2>&1"
+cronjob="*/2 * * * * $croncmd"
+( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -

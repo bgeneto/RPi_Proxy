@@ -1,0 +1,4 @@
+#!/bin/bash
+# stop video streaming and FREE sever communication
+pkill -f video-stream
+pkill -f main.py
