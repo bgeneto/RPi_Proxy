@@ -1,3 +1,17 @@
-pic_interface/__pycache__/*
+# custom user ini files
 server_info.ini
-start-video.sh
+video-stream.ini
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

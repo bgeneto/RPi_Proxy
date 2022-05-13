@@ -1,0 +1,22 @@
+#!/bin/bash
+# you can find your proper video device and resolutions with the following commands:
+# v4l2-ctl --list-devices
+# v4l2-ctl -d /dev/video0 --list-formats-ext
+
+# source user configured ini file
+. ./video-stream.ini
+
+# get Debian/Raspian OS version
+osver=`cat /etc/debian_version`
+osver=${osver%%.*}
+
+# stop already running process (just in case)
+pkill gst-launch-1.0
+
+# start udp streaming and choose codec according to OS version
+if [ "$osver" -gt "10" ]; then
+    gst-launch-1.0 v4l2src device=$usb_camera ! video/x-raw,width=$video_width,height=$video_height,framerate=$video_frame ! clockoverlay time-format="%x - %X" ! videoconvert ! v4l2h264enc ! 'video/x-h264,level=(string)3' ! h264parse ! rtph264pay config-interval=1 pt=126 ! udpsink host=$SERVER port=$VIDEO_PORT async=false
+else
+    gst-launch-1.0 v4l2src device=$usb_camera ! video/x-raw,width=$video_width,height=$video_height,framerate=$video_frame ! clockoverlay time-format="%x - %X" ! videoconvert ! omxh264enc ! h264parse ! rtph264pay config-interval=1 pt=126 ! udpsink host=$SERVER port=$VIDEO_PORT async=false
+fi
+
