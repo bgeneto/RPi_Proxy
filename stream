@@ -4,7 +4,7 @@
 # v4l2-ctl -d /dev/video0 --list-formats-ext
 
 # source user configured ini file
-. ./video-stream.ini
+. $0.ini
 
 # get Debian/Raspian OS version
 osver=`cat /etc/debian_version`
