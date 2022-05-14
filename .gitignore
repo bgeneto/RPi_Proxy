@@ -1,6 +1,5 @@
 # custom user ini files
-server_info.ini
-stream.ini
+*.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

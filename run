@@ -4,21 +4,22 @@
 # */2 * * * * /home/<USER>/wpa-rpi_proxy/run.sh > /dev/null 2>&1
 
 # always set your username (remember: env vars are not available in crontab)
-FOLDER=/home/wpa/wpa-rpi_proxy
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-# python requires this line
-cd $FOLDER
+# required by python main script :-(
+cd $SCRIPT_DIR
 
 # keep video streaming running
 if ! /usr/bin/pgrep -f "video-stream" > /dev/null
 then
     /usr/bin/pkill gst-launch-1.0
-    /usr/bin/nohup $FOLDER/video-stream > /tmp/video-stream.out 2>&1 &
+    /usr/bin/pkill ffmpeg
+    /usr/bin/nohup $SCRIPT_DIR/video-stream > /tmp/video-stream.out 2>&1 &
 fi
 
 # try to keep serial port communication opened
 if ! /usr/bin/pgrep -f "python3.*main" > /dev/null
 then
-    /usr/bin/python3 $FOLDER/main.py > /tmp/main.out 2>&1 &
+    /usr/bin/python3 $SCRIPT_DIR/main.py > /tmp/main.out 2>&1 &
 fi
 
