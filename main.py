@@ -19,7 +19,11 @@ config_file = os.path.join(SCRIPT_DIR, 'server_info.ini')
 if not os.path.isfile(config_file):
     print("*ERROR: config file not found!\n\tRequired file is {}".format(config_file))
     sys.exit(1)
-config_info.read(config_file)
+try:
+    config_info.read(config_file)
+except:
+    print("*ERROR: parsing ini file failed!")
+    sys.exit(1)
 
 FORMAT = 'utf-8'
 
