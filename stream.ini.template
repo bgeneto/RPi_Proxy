@@ -1,7 +1,7 @@
 video_server="localhost"
 video_port=6002
-apparatus_location="Brasil"
-apparatus_name="Nome do Pêndulo"
+apparatus_location="Lisbon"
+apparatus_name="Pendulum Name"
 apparatus_id=1
 
 #video configuration
