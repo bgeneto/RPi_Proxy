@@ -3,4 +3,4 @@
 pkill -f video-stream
 pkill -f main.py
 pkill -f ffmpeg
-pkill -f gst-launch-1.0 
+pkill -f gst-launch-1.0
