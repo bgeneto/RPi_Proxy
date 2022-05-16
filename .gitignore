@@ -1,6 +1,7 @@
 # custom user ini files
 *.ini
 *.template
+*.ini.template
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
