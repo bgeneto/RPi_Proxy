@@ -1,7 +1,6 @@
 # custom user ini files
 *.ini
-video-stream.ini
-server_info.ini
+*.template
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
