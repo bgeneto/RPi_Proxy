@@ -1,8 +1,8 @@
 [DEFAULT]
 SERVER=<proto>://<ip_or_fqdn>:<port>
 APPARATUS_ID=?
-EXPERIMENT_ID=1
 SECRET=<supersecret>
+EXPERIMENT_ID=1
 DEBUG=off
 
 VIDEO_SERVER=<ip_or_fqdn>
