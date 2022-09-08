@@ -1,7 +1,7 @@
 #!/bin/bash
 # check if crontab scheduler is active:
 # crontab -e
-# */2 * * * * /home/<USER>/wpa-rpi_proxy/run.sh > /dev/null 2>&1
+# */2 * * * * /home/<USER>/wpa-rpi_proxy/run > /dev/null 2>&1
 
 # always set your username (remember: env vars are not available in crontab)
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
